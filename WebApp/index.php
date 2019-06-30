@@ -49,9 +49,8 @@
                   <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                  <a class="nav-item nav-link" href="#">Introduce</a>
                   <a class="nav-item nav-link" href="#">Only Item/Parts store</a>
-                  <a class="nav-item nav-link" href="#">Service</a>
-                  <a class="nav-item nav-link" href="#">Contact Us</a>
-                  <a class="nav-item nav-link" href="#">Service</a>
+                  <a class="nav-item nav-link" href="./service.php">Service</a>
+                  <a class="nav-item nav-link" href="./test.php">Contact Us</a>
                   <a class="nav-item nav-link" href="#">Log in</a>
                  
               </div>
