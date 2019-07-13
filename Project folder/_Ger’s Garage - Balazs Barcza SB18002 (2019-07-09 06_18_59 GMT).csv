@@ -1,0 +1,30 @@
+"WBS #","Name / Title",Type,"Start Date","End Date","Estimated Hours","Actual Hours","Percent Complete",Resources,Predecessors,Notes,Comments,"Task Color"
+1," Ger’s Garage - Balazs Barcza SB18002",project,2019-06-17,2019-08-06,0,0,15.23,,,,,
+1.1,Analysis,group,2019-06-17,2019-08-06,0,0,24.73,,,,,
+1.1.1,Planning,task,2019-06-17,2019-06-27,0,0,70,,,,,blue2
+1.1.2,"Analysis Complete",task,2019-06-23,2019-06-27,0,0,50,,,,,blue2
+1.1.3,"Documentation create",task,2019-06-25,2019-08-06,0,0,5,,,,,blue2
+1.1.4,"Handbook and project requirement read",task,2019-06-25,2019-06-30,0,0,100,,,,,purple1
+1.1.5,"Chapter 1: Introduction",task,2019-07-03,2019-07-08,0,0,80,,,,,purple1
+1.1.6,"Chapter 2: Literature Review",task,2019-07-05,2019-07-10,0,0,80,,,,,purple1
+1.1.7,"Chapter 3: System Analysis & Design",task,2019-07-11,2019-07-16,0,0,0,,,,,purple1
+1.1.8,"Chapter 4: Implementation of system",task,2019-07-12,2019-07-17,0,0,0,,,,,purple1
+1.1.9,"Chapter 5: Testing and evaluation ",task,2019-07-18,2019-07-23,0,0,0,,,,,purple1
+1.1.10,"Chapter 6: Conclusions and Further Work ",task,2019-07-24,2019-07-29,0,0,0,,,,,purple1
+1.1.11,"Chapter 7: Code Listing",task,2019-07-25,2019-07-30,0,0,0,,,,,purple1
+1.1.12,"Chapter 8: Appendices",task,2019-07-27,2019-08-01,0,0,0,,,,,purple1
+1.2,Design,group,2019-06-23,2019-07-21,0,0,9.78,,,,,
+1.2.1,"Design Database",task,2019-06-23,2019-06-25,0,0,50,,,,,blue2
+1.2.2,"Software Design",task,2019-06-23,2019-06-30,0,0,15,,,,,blue2
+1.2.3,"Interface Design",task,2019-06-29,2019-07-07,0,0,20,,,,,blue2
+1.2.4,"Create Design Specification ",task,2019-07-01,2019-07-12,0,0,0,,,,,blue2
+1.2.5,"Design Complete",task,2019-07-08,2019-07-21,0,0,0,,,,,blue2
+1.3,Development,group,2019-07-16,2019-07-30,0,0,0,,,,,
+1.3.1,"Develop System Module",task,2019-07-16,2019-07-28,0,0,0,,,,,blue2
+1.3.2,"Integrate System Module",task,2019-07-23,2019-07-30,0,0,0,,,,,blue2
+1.3.3,"Development Complete",task,2019-07-23,2019-07-30,0,0,0,,,,,blue2
+1.4,Testing,group,2019-07-28,2019-08-06,0,0,0,,,,,
+1.4.1,"Perform System Testing",task,2019-07-28,2019-08-06,0,0,0,,,,,blue2
+1.4.2,"Document Issues Found",task,2019-07-29,2019-08-06,0,0,0,,,,,blue2
+1.4.3,"Correct Issues Found",task,2019-08-02,2019-08-06,0,0,0,,,,,blue2
+1.4.4,"Final Presentation",task,2019-08-06,2019-08-06,0,0,0,,,,,purple1
