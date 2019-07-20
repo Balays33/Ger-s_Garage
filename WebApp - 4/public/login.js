@@ -16,6 +16,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     $(".login-cover").show();
 
     // No user is signed in.
+    
     var dialog = document.querySelector('#loginDialog');
     if (! dialog.showModal) {
       dialogPolyfill.registerDialog(dialog);
