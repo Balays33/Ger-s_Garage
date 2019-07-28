@@ -27,6 +27,7 @@ db.collection('cafes').get().then(snapshot => {
 // saving data
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    console.log("Ia m herer");
     db.collection('cafes').add({
         name: form.name.value,
         city: form.city.value

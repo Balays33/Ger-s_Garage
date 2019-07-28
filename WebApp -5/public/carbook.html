@@ -9,7 +9,7 @@
         
 
         <h1>Car sevice booking</h1>
-
+        <!--
         <div class="content">
 
             <form id="add-car-form"></form>
@@ -31,7 +31,49 @@
                 </tr>
               </table>
         </div>
-
+      -->
+      <div class="content">
+        <form id="add-car-form">
+          <div>
+            <input type="text" name="VehicleLicenceNumber" placeholder="VehicleLicenceNumber">
+            <input type="number" name="VehicleYear" placeholder="VehicleYear">
+            <input type="text" name="Brand" placeholder="Brand">
+          </div>
+          <div>
+            
+              <input type="text" name="VehicleEngineType" placeholder="VehicleEngineType">
+              <input type="text" name="VehicleType" placeholder="VehicleType">
+                
+               <!--
+                <form action="/action_page.php">
+                  <select name="VehicleEngineType">
+                    <option value="petrol">petrol</option>
+                    <option value="diesel">diesel</option>
+                    <option value="hybrid">hybrid</option>
+                    <option value="electric">electric</option>
+                  </select>
+                </form>
+                <form action="/action_page.php">
+                  <select name="VehicleType">
+                    <option value="car">car</option>
+                    <option value="motorbike">motorbike</option>
+                    <option value="van">van</option>
+                    <option value="bus">bus</option>
+                  </select>
+                   <br><br>
+                    <input type="submit">
+                </form>
+              -->
+          </div>
+          <button onclick="test()">Add Vehicle</button>
+        </form>
+      
+      <ul id="car-list">
+        <th >Balazs</th>
+        <th >David</th>  
+      </ul>
+    
+      </div>
         <script>
                 // Your web app's Firebase configuration
                 var firebaseConfig = {
