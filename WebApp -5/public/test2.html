@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <body>
+
+        <h1>test2</h1>
+        <button onclick="test2()">test2</button>
+
+        <div class="content">
+
+            <form id="add-cafe-form">
+                <input type="text" name="name" placeholder="Cafe name">
+                <input type="text" name="city" placeholder="Cafe city">
+                <button>Add Cafe</button>
+            </form>
+
+            <ul id="cafe-list"></ul>
+
+        </div>
+
+        <script>
+                // Your web app's Firebase configuration
+                var firebaseConfig = {
+                  apiKey: "AIzaSyA_MvxhxRgubmZXleweD6tFG1UCP89tjis",
+                  authDomain: "gres-garage-firebase.firebaseapp.com",
+                  databaseURL: "https://gres-garage-firebase.firebaseio.com",
+                  projectId: "gres-garage-firebase",
+                  storageBucket: "gres-garage-firebase.appspot.com",
+                  messagingSenderId: "979259985070",
+                  appId: "1:979259985070:web:acaece0ce407193e"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                // this line to get connection with the database firestore
+                const db = firebase.firestore();
+                db.settings({timestampsInSnapshots: true});
+
+              </script>
+        <script src="./js/test2.js"></script>
+    </body>
+</html>
