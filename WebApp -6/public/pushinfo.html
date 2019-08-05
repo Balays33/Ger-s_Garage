@@ -2,6 +2,21 @@
 <html>
 
 <head>
+
+    <meta charset="utf-8">
+    
+      <!--http://www.carqueryapi.com   API-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js"></script>
+      <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+      <script src="./js/pushinfo.js"></script>
+  
+		<!-- jsCalendar v1.4.4 Javascript and CSS -->
+		<script src="https://cdn.jsdelivr.net/npm/simple-jscalendar@1.4.4/source/jsCalendar.min.js" integrity="sha384-0LaRLH/U5g8eCAwewLGQRyC/O+g0kXh8P+5pWpzijxwYczD3nKETIqUyhuA8B/UB" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-jscalendar@1.4.4/source/jsCalendar.min.css" integrity="sha384-44GnAqZy9yUojzFPjdcUpP822DGm1ebORKY8pe6TkHuqJ038FANyfBYBpRvw8O9w" crossorigin="anonymous">
+	</head>
+
+
   <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
@@ -18,7 +33,6 @@
 
   <!--<link rel="stylesheet" type="text/css" href="./css/stlyfile.css">-->
   <!--<script type="text/javascript" src="./js/pushinfo.js"></script>-->
-
 
   <title>>Ger’s Garage</title>
 
@@ -85,13 +99,18 @@
           Please provide a valid licence number.
         </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationServer02">Vehicle Brands</label>
-        <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Brand" value="BMW" required>
-        <div class="valid-feedback">
-          Looks good!
+      <div class="form-group col-md-4">
+          <label for="validationServer05">VehicleEngineType</label>
+          <select id="validationServer05" class="form-control is-valid" placeholder="VehicleEngineType" required>
+          <div class="invalid-feedback">
+            Looks good!
+          </div>
+            <option selected>petrol</option>
+            <option>diesel</option>
+            <option>hybrid</option>
+            <option>electric</option>
+          </select>
         </div>
-      </div>
       <div class="form-group col-md-4">
         <label for="validationServer03">Vehicle type</label>
         <select id="validationServer03" class="form-control is-valid" placeholder="Vehicletype" required>
@@ -107,33 +126,42 @@
      
     </div>
     
-    
-    <div class="form-row">
+    <!--
       <div class="col-md-4 mb-3">
-        <label for="validationServer04">Vehicle Year</label>
+          <label for="validationServer04">Vehicle Year</label>
         <input type="number" class="form-control is-invalid" id="validationServer04" placeholder="VehicleYear" required>
         <div class="invalid-feedback">
           Please provide a vehicle year.
         </div>
       </div>
-      <div class="form-group col-md-4">
-        <label for="validationServer05">VehicleEngineType</label>
-        <select id="validationServer05" class="form-control is-valid" placeholder="VehicleEngineType" required>
-        <div class="invalid-feedback">
-          Looks good!
-        </div>
-          <option selected>petrol</option>
-          <option>diesel</option>
-          <option>hybrid</option>
-          <option>electric</option>
-        </select>
-      </div>
+      
     </div>
+  -->
+  <p>Vehicle details</p>
+    <div>
+    <select name="car-years" id="car-years" placeholder="VehicleYear"></select>  
+    <select name="car-makes" id="car-makes" placeholder="Brand"></select> 
+    <select name="car-models" id="car-models" placeholder="car-models"></select>
+    <select name="car-model-trims" id="car-model-trims"></select> 
+  </div>
+  <div>
+    <br>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationServer02">Not on the list</label>
+            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="otherbrand" value="-" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        </div>
+  <br>
     <!--<button class="btn btn-primary" type="submit">Submit form</button>-->
     <button type="button" class="btn btn-primary btn-sm" onclick="pushvehicle()">Submit form</button>
   </form>
 
 
+  <br>
   <br>
   <h5> Book a Service</h5>
   <br>
@@ -161,8 +189,39 @@
     <input id="demo" type="hidden" />
 </div>			
 
+<!-- Material theme 
+<div class="auto-jsCalendar material-theme" data-navigator="false" id="my-calendar"></div> -->
+<!-- My calendar element -->
+<div id="my-calendar" class=" material-theme" data-navigator="false"></div>
+
+<!-- Outputs -->
+Day click : <br>
+<input id="my-input-a"><br>
+
+
+<!-- Create the calendar -->
+<script type="text/javascript">
+    // Get the element
+    var element = document.getElementById("my-calendar");
+    // Create the calendar
+    var myCalendar = jsCalendar.new(element);
+    // Get the inputs
+    var inputA = document.getElementById("my-input-a");
+    // Add events
+    myCalendar.onDateClick(function(event, date){
+        inputA.value = date.toString();
+    });
+   
+</script>
+<!--<button type="button" class="btn btn-primary btn-sm" onclick="pickupdate()">Pick</button>-->
+
+<a href="./calendar.html">Calendar</a>
+
+
 </div>
 </div>
+
+
 
   <script>
     // Your web app's Firebase configuration
@@ -182,7 +241,7 @@
     db.settings({ timestampsInSnapshots: true });
 
   </script>
-  <script src="./js/pushinfo.js"></script>
+ 
 </body>
 
 </html>

@@ -1,4 +1,71 @@
+// http://www.carqueryapi.com   API
 
+
+$(document).ready(
+    function()
+    {
+         //Create a variable for the CarQuery object.  You can call it whatever you like.
+         var carquery = new CarQuery();
+    
+         //Run the carquery init function to get things started:
+         carquery.init();
+         
+         //Optionally, you can pre-select a vehicle by passing year / make / model / trim to the init function:
+         //carquery.init('2000', 'dodge', 'Viper', 11636);
+    
+         //Optional: Pass sold_in_us:true to the setFilters method to show only US models. 
+         carquery.setFilters( {sold_in_us:true} );
+    
+         //Optional: initialize the year, make, model, and trim drop downs by providing their element IDs
+         carquery.initYearMakeModelTrim('car-years', 'car-makes', 'car-models', 'car-model-trims');
+    
+         //Optional: set the onclick event for a button to show car data.
+         $('#cq-show-data').click(  function(){ carquery.populateCarData('car-model-data'); } );
+    
+         //Optional: initialize the make, model, trim lists by providing their element IDs.
+         carquery.initMakeModelTrimList('make-list', 'model-list', 'trim-list', 'trim-data-list');
+    
+         //Optional: set minimum and/or maximum year options.
+         carquery.year_select_min=2000;
+         carquery.year_select_max=2019;
+     
+         //Optional: initialize search interface elements.
+         //The IDs provided below are the IDs of the text and select inputs that will be used to set the search criteria.
+         //All values are optional, and will be set to the default values provided below if not specified.
+         var searchArgs =
+         ({
+             body_id:                       "cq-body"
+            ,default_search_text:           "Keyword Search"
+            ,doors_id:                      "cq-doors"
+            ,drive_id:                      "cq-drive"
+            ,engine_position_id:            "cq-engine-position"
+            ,engine_type_id:                "cq-engine-type"
+            ,fuel_type_id:                  "cq-fuel-type"
+            ,min_cylinders_id:              "cq-min-cylinders"
+            ,min_mpg_hwy_id:                "cq-min-mpg-hwy"
+            ,min_power_id:                  "cq-min-power"
+            ,min_top_speed_id:              "cq-min-top-speed"
+            ,min_torque_id:                 "cq-min-torque"
+            ,min_weight_id:                 "cq-min-weight"
+            ,min_year_id:                   "cq-min-year"
+            ,max_cylinders_id:              "cq-max-cylinders"
+            ,max_mpg_hwy_id:                "cq-max-mpg-hwy"
+            ,max_power_id:                  "cq-max-power"
+            ,max_top_speed_id:              "cq-max-top-speed"
+            ,max_weight_id:                 "cq-max-weight"
+            ,max_year_id:                   "cq-max-year"
+            ,search_controls_id:            "cq-search-controls"
+            ,search_input_id:               "cq-search-input"
+            ,search_results_id:             "cq-search-results"
+            ,search_result_id:              "cq-search-result"
+            ,seats_id:                      "cq-seats"
+            ,sold_in_us_id:                 "cq-sold-in-us"
+         }); 
+         carquery.initSearchInterface(searchArgs);
+    
+         //If creating a search interface, set onclick event for the search button.  Make sure the ID used matches your search button ID.
+         $('#cq-search-btn').click( function(){ carquery.search(); } );
+    });
 
 var email = "balazs.barcza@gmail.com";
 
@@ -13,6 +80,8 @@ function test(){
 */
 function pushcustomer() {
 
+
+    window.alert("Thanks for the update personal details");
     var firstname = document.getElementById("firstname").value;
     var secondname = document.getElementById("secondname").value;
     var phonenumber = document.getElementById("phonenumber").value;
@@ -43,12 +112,14 @@ function pushcustomer() {
 
 function pushvehicle() {
 
+    window.alert("Thanks for the update vehicle details");
     var VehicleLicenceNumber = document.getElementById("validationServer01").value;
-    var Vehiclebrand = document.getElementById("validationServer02").value;
+    var Vehiclebrand = document.getElementById("car-makes").value;
     var Vehicletype = document.getElementById("validationServer03").value;
-    
-    var VehicleYear = document.getElementById("validationServer04").value;
+    var Vehiclemodel = document.getElementById("car-models").value;
+    var VehicleYear = document.getElementById("car-years").value;
     var VehicleEngineType = document.getElementById("validationServer05").value;
+    var VehicleNotontheList = document.getElementById("validationServer02").value;
     console.log('send data up');
     // Add a new document in collection "cities"
     db.collection("Vehicle").doc(email).set({
@@ -58,6 +129,8 @@ function pushvehicle() {
         VehicleYear: VehicleYear,
         VehicleEngineType: VehicleEngineType,
         CustomerEmail: email,
+        Vehiclemodel: Vehiclemodel,
+        VehicleNotontheList : VehicleNotontheList,
 })
         .then(function () {
             console.log("Document successfully written!");
@@ -68,72 +141,22 @@ function pushvehicle() {
 
 }
 
+ function pickupdate(){
+    // Create the calendar
+        console.log("Working");
+        // Get the element
+        var element = document.getElementById("my-calendar");
+        // Create the calendar
+        var myCalendar = jsCalendar.new(element);
+        // Get the inputs
+        var inputA = document.getElementById("my-input-a");
+        var inputB = document.getElementById("my-input-b");
+        // Add events
+        myCalendar.onDateClick(function(event, date){
+            inputA.value = date.toString();
+        });
+        myCalendar.onMonthChange(function(event, date){
+            inputB.value = date.toString();
+        });
+ }
 
-mobiscroll.settings = {
-    theme: 'mobiscroll-dark'
-};
-
-var booked = [],
-    invalid = ['w1'],
-    now = new Date(),
-    min = new Date(now.getFullYear(), now.getMonth(), now.getDate()),
-    max = new Date(now.getFullYear(), now.getMonth() + 6, now.getDate()),
-    firstMonth = generateMonthEvents(now.getFullYear(), now.getMonth());
-
-booked = firstMonth.labels;
-invalid = invalid.concat(firstMonth.invalid);
-
-instance = mobiscroll.calendar('#demo', {
-    display: 'inline',
-    controls: ['calendar'],
-    min: min,
-    max: max,
-    invalid: ['w1'],
-    labels: booked,
-    onPageLoading: function (event, inst) {
-        var newItems,
-            year = event.firstDay.getFullYear(),
-            month = event.firstDay.getMonth(),
-            isEventsLoaded = (inst.settings.labels).filter(function (v) {
-                return v.d.getMonth() == month + 1;
-            }).length;
-
-        if (!isEventsLoaded) {
-            newItems = generateMonthEvents(year, month + 1);
-            inst.settings.labels = inst.settings.labels.concat(newItems.labels);
-            inst.settings.invalid = inst.settings.invalid.concat(newItems.invalid);
-        }
-    }
-});
-
-function getRandomDay() {
-    return Math.floor(Math.random() * 100) % 28 + 1;
-}
-
-function generateMonthEvents(year, month) {
-    var isDisabled,
-        tempDay,
-        invalid = [],
-        events = [],
-        disabledDays = [getRandomDay(), getRandomDay(), getRandomDay(), getRandomDay()];
-
-    for (var i = 1; i <= new Date(year, month + 1, 0).getDate(); ++i) {
-        tempDay = new Date(year, month, i, now.getHours(), now.getSeconds());
-        if (tempDay.getTime() >= now.getTime() && tempDay.getTime() <= max.getTime()) {
-            isDisabled = disabledDays.indexOf(i) !== -1 || tempDay.getDay() == 1;
-            if (isDisabled) {
-                invalid.push(tempDay);
-            }
-            events.push({
-                d: tempDay,
-                text: isDisabled ? (tempDay.getDay() == 1 ? 'CLOSED' : 'FULL') : Math.round(Math.random() * 10) % 5 + 2 + ' SPOTS',
-                color: isDisabled ? '#ccc' : '#8ada8a'
-            });
-        }
-    }
-
-    return {
-        labels: events,
-        invalid: invalid
-    };
-}
