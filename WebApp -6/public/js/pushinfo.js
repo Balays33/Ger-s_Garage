@@ -1,3 +1,23 @@
+
+var database = firebase.database();
+var email;
+
+setDataRef = database.ref("/passEmail");
+setDataRef.on('child_changed', function (snapshot) {
+    console.log("Below is the data from child_changed");
+    console.log(snapshot.val());
+});
+
+
+firebase.database().ref('passEmail').once('value', (snap) => {
+    console.log(snap.val());
+    email = snap.val().value;
+    console.log(email);
+});
+      
+  
+
+
 // http://www.carqueryapi.com   API
 
 
@@ -67,7 +87,8 @@ $(document).ready(
          $('#cq-search-btn').click( function(){ carquery.search(); } );
     });
 
-var email = "balazs.barcza@gmail.com";
+
+console.log("test here",email);
 
 
 /*
@@ -80,7 +101,7 @@ function test(){
 */
 function pushcustomer() {
 
-
+    console.log("test here",email);
     window.alert("Thanks for the update personal details");
     var firstname = document.getElementById("firstname").value;
     var secondname = document.getElementById("secondname").value;

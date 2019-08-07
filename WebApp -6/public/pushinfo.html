@@ -9,7 +9,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js"></script>
       <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
-      <script src="./js/pushinfo.js"></script>
+     
   
 		<!-- jsCalendar v1.4.4 Javascript and CSS -->
 		<script src="https://cdn.jsdelivr.net/npm/simple-jscalendar@1.4.4/source/jsCalendar.min.js" integrity="sha384-0LaRLH/U5g8eCAwewLGQRyC/O+g0kXh8P+5pWpzijxwYczD3nKETIqUyhuA8B/UB" crossorigin="anonymous"></script>
@@ -17,9 +17,12 @@
 	</head>
 
 
-  <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+
+  
 
   <link rel="stylesheet" href="./css/styles.css">
 
@@ -39,6 +42,43 @@
 </head>
 
 <body>
+
+     <!-- Image and text -->
+    
+     <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-8">
+            <a class="navbar-brand" href="#">
+              <img src="./img/phone-icon-hi.png" width="30" height="30" class="d-inline-block align-top" alt="icon"
+                align="left">
+              +353 85 109 7776
+            </a>
+          </div>
+      
+          <div class="col-xs-12 col-md-4">
+            <h5>Ger’s Garage</h5>
+          </div>
+        </div>
+      </div>
+
+    <nav class="navbar navbar-light" style="background-color: #3396FF;">
+        <!-- Navbar content -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="./login.html">Back to your personal page</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+             <!--<a class="nav-item nav-link active" href="./login.html">Back to the Login page <span class="sr-only">(current)</span></a>--> 
+              
+      
+            </div>
+          </div>
+        </nav>
+      
+      </nav>
 
   <div class="content">
   <br>
@@ -241,7 +281,7 @@ Day click : <br>
     db.settings({ timestampsInSnapshots: true });
 
   </script>
- 
+ <script src="./js/pushinfo.js"></script>
 </body>
 
 </html>

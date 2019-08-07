@@ -1,9 +1,22 @@
 // DOM elements
 const guideList = document.querySelector('.guides');
+const loggedOutLinks = document.querySelectorAll('.logged-out');
+const loggedInLinks = document.querySelectorAll('.logged-in');
 
+// what can you see on the navibar
+const setupUI = (user) => {
+  if (user) {
+    // toggle user UI elements
+    loggedInLinks.forEach(item => item.style.display = 'block');
+    loggedOutLinks.forEach(item => item.style.display = 'none');
+  } else {
+    // toggle user elements
+    loggedInLinks.forEach(item => item.style.display = 'none');
+    loggedOutLinks.forEach(item => item.style.display = 'block');
+  }
+};
 // setup guides
 const setupGuides = (data) => {
-
   if (data.length) {
     let html = '';
     data.forEach(doc => {
@@ -18,7 +31,7 @@ const setupGuides = (data) => {
     });
     guideList.innerHTML = html
   } else {
-    guideList.innerHTML = '<h5 class="center-align">Login to view Car Service Info</h5>';
+   guideList.innerHTML = '<h5 class="center-align">Login to view Car Service Info</h5>';
   }
   
 
@@ -58,3 +71,4 @@ document.addEventListener('DOMContentLoaded', function() {
   M.Collapsible.init(items);
 
 });
+

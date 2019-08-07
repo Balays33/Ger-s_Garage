@@ -14,9 +14,9 @@
     <link rel="stylesheet" type="text/css" href="./css/stlyfile.css">
 
 
-    <title>>Ger’s Garage</title>
+    <title>>Ger’s Garage log page</title>
 </head>
-<body class="grey lighten-3"">
+<body class="grey lighten-3">
 
         <nav class="navbar navbar-light" style="background-color: #3396FF;">
                 <!-- Navbar content -->
@@ -42,21 +42,27 @@
                                     </div>
                                 -->
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li class="logged-in"></li>
+                                      <li class="logged-in"  style="display: none;"></li>
                                         <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
                                       </li>
-                                      <li class="logged-in">
+                                      <li class="logged-in"  style="display: none;">
                                         <a href="#" class="grey-text" id="logout">Logout</a>
                                       </li>
-                                      <li class="logged-in">
+                                      <li class="logged-in"  style="display: none;">
                                         <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
                                       </li>
-                                      <li class="logged-out">
+                                      <li class="logged-out" style="display: none;">
                                         <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
                                       </li>
-                                      <li class="logged-out">
+                                      <li class="logged-out"  style="display: none;">
                                         <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
                                       </li>
+                                      <li class="user-email"  style="display: none;">
+                                          <a  id="userEmail" >User e-mail</a>
+                                        </li>
+                                        <li class="logged-in"  style="display: none;">
+                                          <a href="#" class="grey-text modal-trigger" data-target="modal-Vehicle">Vehicle Info</a>
+                                        </li>
                                   </div>
                                 </div>
                         </div>
@@ -106,9 +112,64 @@
     <div class="modal-content center-align">
       <h4>Account details</h4><br />
       <div class="account-details"></div>
+      <br>
       <div class="account-extras"></div>
+      <button type="button" class="btn btn-primary btn-sm" onclick="getpersonalInfo()">Get your details</button>
+      <br>
+      <hr>
+      <div id="email">email</div>
     </div>
   </div>
+
+  <!------------------------------------------------------------------------------------------------>
+
+<!-- CREATE Vehicle MODAL -->
+<!--
+<div id="modal-Vehicle" class="modal">
+  <div class="modal-content">
+    <h4>Vehicle info</h4><br />
+    <form id="create-form">
+      <div class="input-field">
+        <input type="text" id="title2" required>
+        <label for="title2">Vehicle Title</label>
+      </div>
+      <div class="input-field">
+        <textarea id="content2" class="materialize-textarea" required></textarea>
+        <label for="content2">Vehicle Content</label>
+      </div>
+      <button class="btn blue darken-2 z-depth-0">Create</button>
+    </form>
+  </div>
+</div>
+
+-->
+ <!-- GUIDE LIST -->
+
+ <!--
+ <div class="container2" style="margin-top: 40px;">
+  <ul class="collapsible z-depth-0 Vehicle" style="border: none;">
+      
+    <li>
+      <div class="collapsible-header grey lighten-4">Guide title</div>
+      <div class="collapsible-body white">Lorem ipsum dolor sit amet.</div>
+    </li>
+    <li>
+      <div class="collapsible-header grey lighten-4">Guide title</div>
+      <div class="collapsible-body white"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header grey lighten-4">Guide title</div>
+      <div class="collapsible-body white"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header grey lighten-4">Guide title</div>
+      <div class="collapsible-body white"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+  
+  </ul>
+</div>
+-->
+  <!------------------------------------------------------------------------------------------------>
 
   <!-- CREATE GUIDE MODAL -->
   <div id="modal-create" class="modal">
@@ -157,7 +218,46 @@
     </ul>
 </div>
   
-    
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="logged-in"  style="display: none;">
+      <div class="container" >
+        <div class="col-sm">
+          <h2 style="color:blue;">HOW CAN WE HELP ?</h2>
+        </div>
+        <div class="row">
+      
+          <div class="col-4">
+              <a href="./pushinfo.html" >
+            <img src="img/mechanical.png" height="80">
+            <h6 style="color:blue;">BOOK A SERVICE</h6>
+              </a>
+          </div>
+          <div class="col-4">
+            <img src="img/spring.png" height="80">
+            <h6 style="color:blue;">BUY CAR PARTS</h6>
+          </div>
+          <div class="col-4" >
+            <a href="./login.html" onclick="logouticon()">
+            <img src="img/exit.png"   height="80">
+            <h6 style="color:blue;">LOG OUT</h6>
+           </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -167,6 +267,8 @@
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+  
   <script>
     // Initialize Firebase
         var firebaseConfig = {
@@ -184,10 +286,12 @@
     // make auth and firestore references
     const auth = firebase.auth();
     const db = firebase.firestore();
-
+    
+    
     // update firestore settings
     db.settings({ timestampsInSnapshots: true });
   </script>
+  
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="./js/auth.js"></script>

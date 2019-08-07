@@ -19,7 +19,7 @@ function renderCar(doc){
 }
 
 // getting data
-db.collection('car').get().then(snapshot => {
+db.collection('servicetime').get().then(snapshot => {
     //console.log(snapshot.docs);
     snapshot.docs.forEach(doc => {
         console.log(doc.data());
