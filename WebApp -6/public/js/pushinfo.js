@@ -2,6 +2,7 @@
 var database = firebase.database();
 var email;
 
+
 setDataRef = database.ref("/passEmail");
 setDataRef.on('child_changed', function (snapshot) {
     console.log("Below is the data from child_changed");
@@ -162,22 +163,44 @@ function pushvehicle() {
 
 }
 
+// this function is make a booking get date and time from the user
  function pickupdate(){
-    // Create the calendar
-        console.log("Working");
-        // Get the element
-        var element = document.getElementById("my-calendar");
-        // Create the calendar
-        var myCalendar = jsCalendar.new(element);
-        // Get the inputs
-        var inputA = document.getElementById("my-input-a");
-        var inputB = document.getElementById("my-input-b");
-        // Add events
-        myCalendar.onDateClick(function(event, date){
-            inputA.value = date.toString();
-        });
-        myCalendar.onMonthChange(function(event, date){
-            inputB.value = date.toString();
-        });
+   console.log("pickupdate is working");
+   //var Vnumber = "NoNumber";
+   //getdata();
+   var BookingServicetype =  document.getElementById("validationServer06").value;
+   var time = document.getElementById("validationServer07").value;
+   var day = document.getElementById("my-input-a").value;
+   var status = "Booked";
+    db.collection("servicetime").add({
+    BookingServicetype : BookingServicetype,
+    CustomerEmail: email,
+    ServiceDay : day,
+    ServiceTime : time,
+    //VehicleLicenceNumber : Vnumber,
+    Status : status,
+})
+    .then(function () {
+        console.log("Document successfully written!");
+    })
+    .catch(function (error) {
+        console.error("Error writing document: ", error);
+    });
+
  }
 
+
+// get cutomer data
+/*
+function getdata(){
+db.collection('Vehicle').get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+        //console.log("getting data");
+        //console.log(doc.data());
+        if (doc.data().CustomerEmail == email) {
+            Vnumber = doc.data().VehicleLicenceNumber;
+            console.log(Vnumber); }
+    });
+});
+}
+*/

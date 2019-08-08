@@ -19,7 +19,7 @@ auth.onAuthStateChanged(user => {
     db.collection('guides').onSnapshot(snapshot => {
       setupGuides(snapshot.docs);
       setupUI(user);
-      console.log("itt test megy", user.email);
+      //console.log("itt test megy", user.email);
       loginemail = user.email;
       passEmail(loginemail);
       console.log(loginemail);
@@ -102,9 +102,10 @@ loginForm.addEventListener('submit', (e) => {
 });
 
 function getpersonalInfo(){
-  console.log("kiir");
-  console.log(loginemail);
+  //console.log(loginemail);
   document.getElementById("email").innerHTML = loginemail;
+  getdata();
+  getVehicledata();
 }
 
 function logouticon(){
@@ -118,7 +119,39 @@ logout.addEventListener('click', (e) => {
 });
 }
 
+// get customer personal details
 
+function getdata(){
+db.collection('customers').get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+        //console.log("get cutomer personal details");
+        //console.log(doc.data());
+        if (doc.data().CustomerEmail == loginemail) {
+           document.getElementById("First-Name").innerHTML = doc.data().CustomerFirstName;
+           document.getElementById("Last-Name").innerHTML = doc.data().CustomerSecondName;
+           document.getElementById("Mobile-number").innerHTML = doc.data().CustomerMobileNumber;
+         }
+    });
+});
+}
+// get cutomer Vehicle details  
+
+function getVehicledata(){
+  db.collection('Vehicle').get().then(snapshot => {
+      snapshot.docs.forEach(doc => {
+          //console.log("get cutomer personal details");
+          //console.log(doc.data());
+          if (doc.data().CustomerEmail == loginemail) {
+             document.getElementById("Licence-Number").innerHTML = doc.data().VehicleLicenceNumber;
+             document.getElementById("Vehicle-type").innerHTML = doc.data().Vehicletype;
+             document.getElementById("Engine-Type").innerHTML = doc.data().VehicleEngineType;
+             document.getElementById("Vehicle-Year").innerHTML = doc.data().VehicleYear;
+             document.getElementById("Vehicle-brand").innerHTML = doc.data().Vehiclebrand;
+            //console.log("Hi");
+           }
+      });
+  });
+  }
 
 
 setDataRef = database.ref("/passEmail");
@@ -127,10 +160,10 @@ setDataRef.on('child_changed', function(snapshot) {
   console.log(snapshot.val());
 });
 
-
+// pass the user email address to access from other page
 function passEmail(x){
   var data = x;
-  console.log(x);
+  //console.log(x);
   var dataRef = database.ref('/passEmail');
   //console.log(data)
   dataRef.set({

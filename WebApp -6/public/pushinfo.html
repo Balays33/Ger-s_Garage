@@ -219,16 +219,23 @@
     </select>
   </div>
   <div class="col-md-6 mb-3">
-    <label for="validationServer04">Vehicle Year</label>
-    <input type="number" class="form-control is-invalid" id="validationServer04" placeholder="VehicleYear" required>
+    <label for="validationServer07">Service time</label>
+    <select id="validationServer07" class="form-control is-valid" placeholder="ServiceTime" required>
     <div class="invalid-feedback">
-      Please provide a vehicle year.
+      Looks good!
     </div>
+      <option selected>10:00-11:00</option>
+      <option>11:00-12:00</option>
+      <option>13:00-14:00</option>
+      <option>14:00-15:00</option>
+      <option>15:00-16:00</option>:00
+    </select>
   </div>
+    <!--
   <div mbsc-form>
     <input id="demo" type="hidden" />
 </div>			
-
+-->
 <!-- Material theme 
 <div class="auto-jsCalendar material-theme" data-navigator="false" id="my-calendar"></div> -->
 <!-- My calendar element -->
@@ -253,12 +260,14 @@ Day click : <br>
     });
    
 </script>
-<!--<button type="button" class="btn btn-primary btn-sm" onclick="pickupdate()">Pick</button>-->
 
 <a href="./calendar.html">Calendar</a>
 
 
 </div>
+</div>
+<div>
+  <button type="button" class="btn btn-primary btn-sm" onclick="pickupdate()">Submit booking time</button>
 </div>
 
 

@@ -42,7 +42,7 @@
                                     </div>
                                 -->
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                      <li class="logged-in"  style="display: none;"></li>
+                                      <li class="logged-in"  style="display: none;">
                                         <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
                                       </li>
                                       <li class="logged-in"  style="display: none;">
@@ -118,6 +118,39 @@
       <br>
       <hr>
       <div id="email">email</div>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <p id="First-Name">First Name</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <p id="Last-Name">Last Name</p>
+          </div>
+          <div class="col-md-4 mb-3">
+              <p id="Mobile-number">Mobile number</p>
+            </div>
+      </div>
+      <hr>
+      <h5>Your Vehicle details</h5>
+      <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <p id="Licence-Number">Licence Number</p>
+          </div>
+          <div class="col-md-4 mb-3">
+              <p id="Vehicle-type">Vehicle type</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <p id="Engine-Type">Engine Type</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <p id="Vehicle-Year">Vehicle Year</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <p id="Vehicle-brand">Vehicle brand</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <p>-</p>
+            </div>
+        </div>
     </div>
   </div>
 
@@ -249,7 +282,7 @@
             <h6 style="color:blue;">BUY CAR PARTS</h6>
           </div>
           <div class="col-4" >
-            <a href="./login.html" onclick="logouticon()">
+            <a href="./login.html" onclick="logouticon()" id="logout">
             <img src="img/exit.png"   height="80">
             <h6 style="color:blue;">LOG OUT</h6>
            </a>
