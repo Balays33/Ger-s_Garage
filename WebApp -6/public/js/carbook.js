@@ -109,6 +109,8 @@ function renderCar(doc){
         db.collection('Vehicle').doc(id).delete();
     });
 }
+
+
 /*
 // getting data
 db.collection('Vehicle').get().then(snapshot => {

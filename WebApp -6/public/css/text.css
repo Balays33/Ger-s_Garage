@@ -1,0 +1,64 @@
+
+
+.content{
+  background: #fff;
+  max-width: 1500px;
+  margin: 30px auto;
+  padding:  20px 30px;
+  border-radius: 10px 120px 10px 10px;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1)
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+li{
+  padding: 25px;
+  background: #f6f6f6;
+  font-size: 15px;
+  color: rgb(103, 175, 10);
+  position: relative;
+  border-bottom: 1px solid #e6e6e6;
+  height: 100px;
+}
+
+li:nth-child(even){
+  padding: 20px;
+  background: #f2f2f2;
+}
+
+li span{
+  display: block;
+}
+
+li span:nth-child(2){
+  font-size: 13px;
+  margin-top: 8px;
+  color: rgb(37, 171, 224);
+}
+
+li div{
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background: rgba(255,255,255,0.6);
+  width: 50px;
+  text-align: center;
+  padding: 10px 0;
+  font-weight:  bold;
+  cursor:  pointer;
+}
+
+button{
+  border: 0;
+  background: rgb(96, 15, 189);
+  border-radius: 10px;
+  
+  box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
+  font-weight: bold;
+  font-family: ubuntu;
+  letter-spacing: 1px;
+  color: rgb(255, 255, 255);
+}

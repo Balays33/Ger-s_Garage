@@ -19,7 +19,7 @@ firebase.database().ref('passEmail').once('value', (snap) => {
   
 
 
-// http://www.carqueryapi.com   API
+// https://www.carqueryapi.com   API
 
 
 $(document).ready(
@@ -165,6 +165,7 @@ function pushvehicle() {
 
 // this function is make a booking get date and time from the user
  function pickupdate(){
+    window.alert("Thanks for the booked service");
    console.log("pickupdate is working");
    //var Vnumber = "NoNumber";
    //getdata();

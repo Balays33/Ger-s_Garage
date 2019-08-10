@@ -20,6 +20,29 @@
 
         </div>
 
+
+        <input type="text" name="CustomerEmail" id="CustomerEmail">
+        <button onclick="getCdata()">Get Customer Data</button>
+        <div >
+            <label for="validationServer11">Service status</label>
+            <select id="validationServer11" class="form-control is-valid" placeholder="Service status" required>
+              <option selected>Booked</option>
+              <option>In Service</option>
+              <option>Fixed / Completed</option>
+              <option>Collected</option>
+              <option>Unrepairable / Scrapped</option>:00
+            </select>
+          </div>
+        <button onclick="updatestatus()">update status</button>
+        
+
+        <div>
+            <a id="First-Name">First Name   </a>
+            <a id="Last-Name">Last Name   </a>
+            <a id="Mobile-number">Mobile number</a>
+          </div>
+      </div>
+
         <script>
                 // Your web app's Firebase configuration
                 var firebaseConfig = {
@@ -38,6 +61,6 @@
                 db.settings({timestampsInSnapshots: true});
 
               </script>
-        <script src="./js/app.js"></script>
+        <script src="./js/test2.js"></script>
     </body>
 </html>
