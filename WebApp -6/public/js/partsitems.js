@@ -1,29 +1,87 @@
+ // Initialize Firebase
+ var config = {
+    apiKey: "AIzaSyA_MvxhxRgubmZXleweD6tFG1UCP89tjis",
+    authDomain: "gres-garage-firebase.firebaseapp.com",
+    databaseURL: "https://gres-garage-firebase.firebaseio.com",
+    projectId: "gres-garage-firebase",
+    storageBucket: "gres-garage-firebase.appspot.com",
+    messagingSenderId: "979259985070",
+    appId: "1:979259985070:web:acaece0ce407193e"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+  
+/*
+
+    //There are two main ways to get data from the database, but for now we are going to focus on .once. Use this if you want to pull from the database just one time.
+    database.ref('/').once('value', function(snapshot){
+      console.log(snapshot.val());
+      printoutItems(snapshot.val());
+     // carList.renderItems(snapshot.val());
+    });
+    //The database will listen at the root directory, which is done with .ref('/'). Below is another way to declare the .ref.
+    var rootRef = database.ref('/');
+    
+    rootRef.once('value', function(snapshot){
+      console.log(snapshot.val());
+      
+    });
+
+    //carList.renderItems(li);
+     function printoutItems(){
+        console.log("working itt");
+        // on() method
+        firebase.database().ref('').once('value',(snap)=>{
+         console.log(snap.val());
+        // document.getElementById("json").innerHTML = snap.val().value;
+        });
+          
+      }
+
+      */
+const servicelist = document.querySelector('#Items-list');
 
 
-const servicelist = document.querySelector('#cutomer-list');
-const test = document.querySelector("#test");
+function writeUserData(userId, name, email, imageUrl) {
+    firebase.database().ref('users/' + userId).set({
+      username: name,
+      email: email,
+      profile_picture : imageUrl
+    });
+  }
 
-
+  function getbal(){
+    console.log("working itt");
+    // on() method
+    firebase.database().ref('/').once('value',(snap)=>{
+     console.log(snap.val());
+     document.getElementById("json").innerHTML = snap.val().value;
+    });
+      
+  }
 // create element & render customer data
-function renderServicetime(doc){
+
+function renderItems(doc){
+    console.log(doc);
+    console.log(doc.item);
     let li = document.createElement('li');
-    let Status = document.createElement('span');
-    let CustomerEmail = document.createElement('span');
-    let BookingServicetype = document.createElement('span');
-    let cross = document.createElement('div');
+    let number = document.createElement('span');
+    let item = document.createElement('span');
+    let price = document.createElement('span');
+    
 
     li.setAttribute('data-id', doc.id);
-    Status.textContent = doc.data().Status;
-    CustomerEmail.textContent = doc.data().CustomerEmail;
-    //BookingServicetype.textContent = doc.data().BookingServicetype;
-    cross.textContent = 'x';
+    number.textContent = doc.number;
+    item.textContent = doc.item;
+    price.textContent = doc.price;
+    
 
    
    
-    li.appendChild(CustomerEmail);
-    li.appendChild(BookingServicetype);
-    li.appendChild(Status);
-    li.appendChild(cross);
+    li.appendChild(number);
+    li.appendChild(item);
+    li.appendChild(price);
     
 
     servicelist.appendChild(li);
@@ -74,17 +132,27 @@ db.collection('Vehicle').onSnapshot(snapshot => {
 });
 
 */
-
+/*
 // real-time listener  to customers
-db.collection('servicetime').onSnapshot(snapshot => {
+database.ref('/').once('value').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
+    
     changes.forEach(change => {
         console.log(change.doc.data());
         if(change.type == 'added'){
             renderServicetime(change.doc);
         } else if (change.type == 'removed'){
             let li = carList.querySelector('[data-id=' + change.doc.id + ']');
-            carList.removeChild(li);
+            //carList.removeChild(li);
         }
     });
 });
+*/
+
+database.ref('/').once('value', function(snapshot){
+    console.log(snapshot.val());
+    if (snapshot.val() == "setData"){
+        console.log("HHHHH");
+    }
+  });
+  

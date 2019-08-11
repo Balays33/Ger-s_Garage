@@ -3,9 +3,12 @@ const guideList = document.querySelector('.guides');
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');
 
+
+
 // what can you see on the navibar
 const setupUI = (user) => {
   if (user) {
+    adminf(user);
     // toggle user UI elements
     loggedInLinks.forEach(item => item.style.display = 'block');
     loggedOutLinks.forEach(item => item.style.display = 'none');
@@ -37,28 +40,14 @@ const setupGuides = (data) => {
 
 };
 
-/*
-// DOM elements
-const infoList = document.querySelector('.info');
-
-// setup info
-const setupInfo = (data) => {
-
-  let html = '';
-  data.forEach(doc => {
-    const info = doc.data();
-    const li = `
-      <li>
-        <div class="collapsible-header grey lighten-4"> ${info.CustomerEmail} </div>
-        <div class="collapsible-body white"> ${guide.CustomerMobileNumber} </div>
-      </li>
-    `;
-    html += li;
-  });
-  infoList.innerHTML = html
-
-};
-*/
+function adminf(user){
+  console.log(user.email);
+  if (user.email == "admin@gmail.com"){
+    console.log("yes");
+    document.getElementById("adminlogin").href="./admin.html";
+    document.getElementById("adminlogin2").href="./admin.html";
+  }
+}
 
 
 // setup materialize components

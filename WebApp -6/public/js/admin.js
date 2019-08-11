@@ -12,6 +12,7 @@ function renderservicetime(doc) {
     let BookingServicetype = document.createElement('span');
     let ServiceDay = document.createElement('span');
     let ServiceTime = document.createElement('span');
+    let serviceby = document.createElement('span');
 
     let cross = document.createElement('div');
 
@@ -21,6 +22,7 @@ function renderservicetime(doc) {
     Status.textContent = doc.data().Status;
     ServiceDay.textContent = doc.data().ServiceDay;
     ServiceTime.textContent = doc.data().ServiceTime;
+    serviceby.textContent = doc.data().serviceby;
     cross.textContent = 'x';
 
     li.appendChild(CustomerEmail);
@@ -28,6 +30,7 @@ function renderservicetime(doc) {
     li.appendChild(Status);
     li.appendChild(ServiceDay);
     li.appendChild(ServiceTime);
+    li.appendChild(serviceby);
     li.appendChild(cross);
 
     carList.appendChild(li);
@@ -133,7 +136,37 @@ function updatestatus() {
     });
 }
 
+// update service mechanic
 
+function updatemechanic() {
+    console.log('update mechanic');
+    var servicebyUpdate = document.getElementById("validationServer12").value;
+    console.log(servicebyUpdate);
+    var cutomerEmailG = document.getElementById("CustomerEmail").value;
+    console.log(cutomerEmailG);
+
+    db.collection('servicetime').get().then(snapshot => {
+        snapshot.docs.forEach(doc => {
+            console.log("get cutomer personal details");
+            console.log(doc.data());
+            console.log(doc.id);
+            var userid = doc.id;
+            console.log(userid);
+            if (doc.data().CustomerEmail == cutomerEmailG) {
+                console.log("-----------------");
+                db.collection("servicetime").doc(doc.id).update({
+                    serviceby: servicebyUpdate,
+                })
+                    .then(function () {
+                        console.log("Document successfully written!");
+                    })
+                    .catch(function (error) {
+                        console.error("Error writing document: ", error);
+                    });
+             }
+        });
+    });
+}
 
 
 // get customer personal details
@@ -145,7 +178,6 @@ function getCdata(){
     db.collection('customers').get().then(snapshot => {
         snapshot.docs.forEach(doc => {
             console.log("get cutomer personal details");
-            
             console.log(doc.data());
             if (doc.data().CustomerEmail == cutomerEmailG) {
                document.getElementById("First-Name").innerHTML = doc.data().CustomerFirstName;               

@@ -22,7 +22,7 @@ auth.onAuthStateChanged(user => {
       //console.log("itt test megy", user.email);
       loginemail = user.email;
       passEmail(loginemail);
-      console.log(loginemail);
+      //console.log(loginemail);
     });
   } else {
     console.log('user logged out');

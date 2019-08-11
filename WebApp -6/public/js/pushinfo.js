@@ -173,12 +173,13 @@ function pushvehicle() {
    var time = document.getElementById("validationServer07").value;
    var day = document.getElementById("my-input-a").value;
    var status = "Booked";
+   var serviceby = "noname";
     db.collection("servicetime").add({
     BookingServicetype : BookingServicetype,
     CustomerEmail: email,
     ServiceDay : day,
     ServiceTime : time,
-    //VehicleLicenceNumber : Vnumber,
+    serviceby : serviceby,
     Status : status,
 })
     .then(function () {

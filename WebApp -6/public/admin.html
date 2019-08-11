@@ -41,6 +41,11 @@
         </div>
        
       <div class="content">
+          <div>
+              <a id="First-Name">First Name   </a>
+              <a id="Last-Name">Last Name   </a>
+              <a id="Mobile-number">Mobile number</a>
+            </div>
         <form id="add-car-form">
           <div>
             <input type="text" name="CustomerEmail" id="CustomerEmail">
@@ -52,11 +57,24 @@
                   <option>In Service</option>
                   <option>Fixed / Completed</option>
                   <option>Collected</option>
-                  <option>Unrepairable / Scrapped</option>:00
+                  <option>Unrepairable / Scrapped</option>
                 </select>
               </div>
+              <div>
+                  <div >
+                      <label for="validationServer12">Service mechanic</label>
+                      <select id="validationServer12" class="form-control is-valid" placeholder="Service mechanic" required>
+                        <option selected>Peter</option>
+                        <option>David</option>
+                        <option>John</option>
+                        <option>Paul</option>
+                      </select>
+                    </div>
+              </form>
             <button onclick="updatestatus()">update status</button>
+            <button onclick="updatemechanic()">update mechanic </button>
             <button onclick="getCdata()">Create “invoice”</button>
+            
           </div>
         </form>
       
