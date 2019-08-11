@@ -142,15 +142,12 @@ function getCdata(){
     console.log('get customer data');
     var cutomerEmailG = document.getElementById("CustomerEmail").value;
     console.log(cutomerEmailG);
-    window.alert("---------------------");
     db.collection('customers').get().then(snapshot => {
         snapshot.docs.forEach(doc => {
             console.log("get cutomer personal details");
             
             console.log(doc.data());
             if (doc.data().CustomerEmail == cutomerEmailG) {
-                console.log("HHHHHHHHHHHHHHHHHHHHHHHH");
-               
                document.getElementById("First-Name").innerHTML = doc.data().CustomerFirstName;               
                document.getElementById("Last-Name").innerHTML = doc.data().CustomerSecondName;
                document.getElementById("Mobile-number").innerHTML = doc.data().CustomerMobileNumber;
@@ -158,3 +155,4 @@ function getCdata(){
         });
     });
     }
+

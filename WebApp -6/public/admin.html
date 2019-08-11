@@ -1,13 +1,10 @@
 <html>
     <head>
 
+        
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 
         <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
@@ -23,10 +20,25 @@
     </head>
     <body>
 
-      
-        
+      <div class="col-4">
+          <a href="./login.html" >
+        <img src="./img/back.png" height="80">
+        <h6 style="color:blue;">Go back to the log in page</h6>
+          </a>
+      </div>
 
         <h1>Admin Page</h1>
+
+        <div>
+          <a id="First-Name">First Name   </a>
+          <a id="Last-Name">Last Name   </a>
+          <a id="Mobile-number">Mobile number</a>
+        </div>
+        <div>
+            <a>-</a>
+            <a>-</a>
+            <a>-</a>
+        </div>
        
       <div class="content">
         <form id="add-car-form">
@@ -46,17 +58,6 @@
             <button onclick="updatestatus()">update status</button>
             <button onclick="getCdata()">Create “invoice”</button>
           </div>
-          <div>
-              <a id="First-Name">First Name   </a>
-              <a id="Last-Name">Last Name   </a>
-              <a id="Mobile-number">Mobile number</a>
-            </div>
-            <div>
-                <a>-</a>
-                <a>-</a>
-                <a>-</a>
-            </div>
-              
         </form>
       
       <ul id="car-list">
