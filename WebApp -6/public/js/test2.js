@@ -103,7 +103,8 @@ var config = {
         // on() method
         firebase.database().ref('22').once('value',(snap)=>{
          console.log(snap.val());
-        // document.getElementById("json").innerHTML = snap.val().value;
+         console.log(snap.val().price);
+         document.getElementById("json").innerHTML = snap.val().Items;
         });
           
       }

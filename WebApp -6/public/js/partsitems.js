@@ -51,20 +51,11 @@ function writeUserData(userId, name, email, imageUrl) {
     });
   }
 
-  function getbal(){
-    console.log("working itt");
-    // on() method
-    firebase.database().ref('/').once('value',(snap)=>{
-     console.log(snap.val());
-     document.getElementById("json").innerHTML = snap.val().value;
-    });
-      
-  }
+ 
 // create element & render customer data
 
 function renderItems(doc){
     console.log(doc);
-    console.log(doc.item);
     let li = document.createElement('li');
     let number = document.createElement('span');
     let item = document.createElement('span');
@@ -73,7 +64,7 @@ function renderItems(doc){
 
     li.setAttribute('data-id', doc.id);
     number.textContent = doc.number;
-    item.textContent = doc.item;
+    item.textContent = doc.Items;
     price.textContent = doc.price;
     
 
@@ -156,3 +147,17 @@ database.ref('/').once('value', function(snapshot){
     }
   });
   
+  var i;
+function getparts() {
+    console.log("working itt");
+    // on() method
+    for (i = 0; i < 100; i++) {
+        
+        firebase.database().ref(i).once('value', (snap) => {
+            console.log(snap.val());
+            renderItems(snap.val());
+            //console.log(snap.val().Items);
+            //document.getElementById("json").innerHTML = snap.val().Items;
+        });
+    }
+}
